@@ -37,6 +37,11 @@ class postscript(printer):
             self.send(cmd_send)
             # use random token or error message as delimiter PS responses
             str_recv = self.recv(token + ".*$" + "|" + c.PS_FLUSH, fb, crop, binary)
+            print("*"*20)
+            print(str_send)
+            print("-"*20)
+            print(str_recv)
+            print("*"*20)
             return self.ps_err(str_recv)
 
         # handle CTRL+C and exceptions
